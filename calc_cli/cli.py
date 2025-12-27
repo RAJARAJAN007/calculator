@@ -10,30 +10,45 @@ def multiply(a, b):
 def divide(a, b):
     return a / b
 
+print("=== Simple Calculator ===")
 
-print("Simple Calculator")
-print("1. Add")
-print("2. Subtract")
-print("3. Multiply")
-print("4. Divide")
+while True:
+    print("\nOperations:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("q. Quit")
 
-choice = input("Choose an operation (1/2/3/4): ")
-try:
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
+    choice = input("Choose an operation (1/2/3/4) or 'q' to quit: ")
 
-    if choice == "1":
-        print("Result:", add(num1, num2))
-    elif choice == "2":
-        print("Result:", subtract(num1, num2))
-    elif choice == "3":
-        print("Result:", multiply(num1, num2))
-    elif choice == "4":
-        if num2==0:
-            print("cannot divide by zero")
+    if choice.lower() == 'q':
+        print("Goodbye!")
+        break
+
+    if choice not in ['1', '2', '3', '4']:
+        print("Invalid choice! Please select a valid operation.")
+        continue
+
+    try:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+    except ValueError:
+        print("Invalid input! Please enter numeric values only.")
+        continue
+
+    if choice == '1':
+        result = add(num1, num2)
+        print(f"Result: {result:.2f}")
+    elif choice == '2':
+        result = subtract(num1, num2)
+        print(f"Result: {result:.2f}")
+    elif choice == '3':
+        result = multiply(num1, num2)
+        print(f"Result: {result:.2f}")
+    elif choice == '4':
+        if num2 == 0:
+            print("Error: Cannot divide by zero!")
         else:
-            print("Result:", divide(num1, num2))
-    else:
-        print("Invalid choice")
-except ValueError:
-    print("Please enter valid numbers only!")
+            result = divide(num1, num2)
+            print(f"Result: {result:.2f}")
