@@ -1,29 +1,26 @@
-# 🧮 Calculator – CLI Version
+# Calculator – CLI Version
 
-This is a **Command Line Interface (CLI) Calculator** built using **Python**.  
-It allows users to perform basic arithmetic operations directly from the terminal.
+This is a **Command Line Interface (CLI)** calculator built using **Python**.
 
 ---
 
-## ✨ Features
+## Features
 
 - Supports basic arithmetic operations:
-  - ➕ Addition
-  - ➖ Subtraction
-  - ✖️ Multiplication
-  - ➗ Division
-- Menu-based operation selection
-- Handles invalid numeric input using `try-except`
+  - Addition
+  - Subtraction
+  - Multiplication
+  - Division
+- Menu-based user input
+- Handles invalid numeric input using exception handling
 - Prevents division by zero
-- Beginner-friendly and easy to understand
-
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
-1. Open a terminal in the `calc_cli/` folder  
-2. Run the program using Python:
+1. Open a terminal in this folder (`calc_cli/`)
+2. Run the program:
 
 ```bash
 python cli.py
