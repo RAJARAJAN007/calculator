@@ -9,10 +9,10 @@ This repository contains two versions of the **Simple Calculator** in Python:
 # Folder Structure
 
 - calculator/
-  - cli_calc/
-    - calculator.py
+  - calc_cli/
+    - cli.py
     - README.md
-  - gui_calc/
+  - calc_gui/
     - gui.py
     - README.md
   - README.md
