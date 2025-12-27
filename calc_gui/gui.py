@@ -5,15 +5,19 @@ from tkinter import messagebox
 def choose_operation():
     global operation
     operation = operation_var.get()
+
     if operation == "":
         messagebox.showwarning("Warning", "Please select an operation!")
         return
+
     # Close first window and open second
     op_window.destroy()
     enter_numbers_window()
 
+
 def enter_numbers_window():
     global num_window, entry1, entry2, result_label
+
     num_window = tk.Tk()
     num_window.title("Enter Numbers")
     num_window.geometry("350x250")
@@ -30,11 +34,11 @@ def enter_numbers_window():
 
     tk.Button(num_window, text="Submit", font=("Arial", 12), command=calculate).pack(pady=10)
 
-    # Smaller normal result
     result_label = tk.Label(num_window, text="Result: ", font=("Arial", 13))
     result_label.pack(pady=20)
 
     num_window.mainloop()
+
 
 def calculate():
     try:
@@ -61,17 +65,25 @@ def calculate():
     except ValueError:
         messagebox.showerror("Error", "Please enter valid numbers only!")
 
+
 # Step 1 window
 op_window = tk.Tk()
 op_window.title("Choose Operation")
-op_window.geometry("300x250")  # Increased height to make "Next" button visible
+op_window.geometry("300x250")
 
 tk.Label(op_window, text="Select an operation:", font=("Arial", 12)).pack(pady=10)
-operation_var = tk.StringVar()
 
+operation_var = tk.StringVar()
 operations = ["Add", "Subtract", "Multiply", "Divide"]
+
 for op in operations:
-    tk.Radiobutton(op_window, text=op, variable=operation_var, value=op, font=("Arial", 12)).pack(anchor='w')
+    tk.Radiobutton(
+        op_window,
+        text=op,
+        variable=operation_var,
+        value=op,
+        font=("Arial", 12)
+    ).pack(anchor="w")
 
 tk.Button(op_window, text="Next", font=("Arial", 12), command=choose_operation).pack(pady=20)
 
